@@ -158,7 +158,17 @@ public class Task3 {
      * Если входной массив == null - вернуть пустой массив
      */
     int[][] matrixTranspose(int[][] m) {
-        throw new UnsupportedOperationException(); // TODO solve
+        if(m == null){
+            return new int[0][0];
+        }
+        for(int i = 0; i < m.length; i++){
+            for(int j = i + 1; j < m.length; j++){
+                m[i][j] += m[j][i];
+                m[j][i] = m[i][j] - m[j][i];
+                m[i][j] -= m[j][i];
+            }
+        }
+        return m;
     }
 
     /**
