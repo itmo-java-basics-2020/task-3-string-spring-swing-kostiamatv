@@ -91,8 +91,28 @@ public class Task3 {
      * Напишите функцию, которая принимает строку вида "bbcaaaak" и кодирует ее в формат вида "b2c1a4k1",
      * где группы одинаковых символов заменены на один символ и кол-во этих символов идущих подряд в строке
      */
-    String getEncodedString(String input) {
-        throw new UnsupportedOperationException(); // TODO solve
+    String getEncodedString(String input){
+        if(input == null || input == ""){
+            return "";
+        }
+        var result= "" + input.charAt(0);
+        var cur_num = 1;
+        var cur_char = input.charAt(0);
+        var i = 1;
+        while (i < input.length()){
+            if (cur_char == input.charAt(i)){
+                cur_num++;
+            }
+            else {
+                result += Integer.toString(cur_num);
+                cur_char = input.charAt(i);
+                result += cur_char;
+                cur_num = 1;
+            }
+            i++;
+        }
+        result += Integer.toString(cur_num);
+        return result;
     }
 
     /**
