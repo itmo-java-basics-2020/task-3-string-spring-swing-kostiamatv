@@ -72,8 +72,19 @@ public class Task3 {
     /**
      * Напишите функцию, которая определяет, является ли входная строка палиндромом
      */
-    boolean isPalindrome(String input) {
-        throw new UnsupportedOperationException(); // TODO solve
+    boolean isPalindrome(String input){
+        if(input == ""){
+            return true;
+        }
+        if(input == null){
+            return false;
+        }
+        for(int i = 0; i <= input.length()/2; i++){
+            if(input.charAt(i) != input.charAt(input.length() - i - 1)){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
