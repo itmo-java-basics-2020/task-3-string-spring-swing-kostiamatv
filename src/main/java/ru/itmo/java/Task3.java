@@ -139,7 +139,17 @@ public class Task3 {
      * Строкой является последовательность символов длинной N, где N > 0
      */
     boolean isUniqueString(String s) {
-        throw new UnsupportedOperationException(); // TODO solve
+        if(s == null || s == ""){
+            return false;
+        }
+        var array = s.toCharArray();
+        Arrays.sort(array);
+        for(int i = 1; i < array.length; i++){
+            if (array[i] == array[i-1]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
