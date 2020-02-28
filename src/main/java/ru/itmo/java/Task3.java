@@ -1,5 +1,7 @@
 package ru.itmo.java;
 
+import java.util.Arrays;
+
 public class Task3 {
 
     /**
@@ -12,7 +14,7 @@ public class Task3 {
             return new int[0];
         }
         int last = inputArray[inputArray.length - 1];
-        for(int i = inputArray.length; i > 0; i--){
+        for(int i = inputArray.length - 1; i > 0; i--){
             inputArray[i] = inputArray[i - 1];
         }
         inputArray[0] = last;
@@ -28,7 +30,15 @@ public class Task3 {
      * Пример: 2 4 6 -> 24
      */
     int getMaxProduct(int[] inputArray) {
-        throw new UnsupportedOperationException(); // TODO solve
+        if(inputArray == null || inputArray.length == 0){
+            return 0;
+        }
+        if(inputArray.length == 1){
+            return inputArray[0];
+        }
+        Arrays.sort(inputArray);
+        return Integer.max(inputArray[inputArray.length - 1] * inputArray[inputArray.length - 2],
+                inputArray[0] * inputArray[1]);
     }
 
     /**
