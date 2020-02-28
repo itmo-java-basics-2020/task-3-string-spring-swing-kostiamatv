@@ -8,7 +8,15 @@ public class Task3 {
      * Если инпут равен null - вернуть пустой массив
      */
     int[] getShiftedArray(int[] inputArray) {
-        throw new UnsupportedOperationException(); // TODO solve
+        if(inputArray == null || inputArray.length == 0){
+            return new int[0];
+        }
+        int last = inputArray[inputArray.length - 1];
+        for(int i = inputArray.length; i > 0; i--){
+            inputArray[i] = inputArray[i - 1];
+        }
+        inputArray[0] = last;
+        return inputArray;
     }
 
     /**
