@@ -181,7 +181,17 @@ public class Task3 {
      * Если исходный массив == null -  вернуть пустую строку
      */
     String concatWithSeparator(String[] inputStrings, Character separator) {
-        return null; // TODO solve
+        if(inputStrings == null || inputStrings.length == 0){
+            return "";
+        }
+        if(separator == null){
+            separator = ' ';
+        }
+        var result = inputStrings[0];
+        for(int i = 1; i < inputStrings.length; i ++){
+            result += separator + inputStrings[i];
+        }
+        return result;
     }
 
     /**
