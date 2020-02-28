@@ -123,7 +123,14 @@ public class Task3 {
      * isPermutation("abc", "Abc") == false;
      */
     boolean isPermutation(String one, String two) {
-        throw new UnsupportedOperationException(); // TODO solve
+        if(one == null || two == null || one == "" || two == ""){
+            return false;
+        }
+        var chars1 = one.toCharArray();
+        var chars2 = two.toCharArray();
+        Arrays.sort(chars1);
+        Arrays.sort(chars2);
+        return Arrays.equals(chars1, chars2);
     }
 
     /**
