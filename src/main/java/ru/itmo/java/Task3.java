@@ -198,6 +198,21 @@ public class Task3 {
      * Напишите функцию, принимающую массив строк и строку-перфикс и возвращающую кол-во строк массива с данным префиксом
      */
     int getStringsStartWithPrefix(String[] inputStrings, String prefix) {
-        return 0; // TODO solve
+        if(inputStrings == null || inputStrings.length == 0 || prefix == null){
+            return 0;
+        }
+        var num = 0;
+        for(int i = 0; i < inputStrings.length; i++){
+            if(prefix.length() <= inputStrings[i].length()){
+                num ++;
+                for(int j = 0; j < prefix.length(); j++){
+                    if(prefix.charAt(j) != inputStrings[i].charAt(j)){
+                        num --;
+                        break;
+                    }
+                }
+            }
+        }
+        return num;
     }
 }
