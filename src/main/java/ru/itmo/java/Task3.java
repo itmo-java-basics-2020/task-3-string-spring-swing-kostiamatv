@@ -49,7 +49,24 @@ public class Task3 {
      * Пример: acbr -> 50
      */
     int getABpercentage(String input) {
-        throw new UnsupportedOperationException(); // TODO solve
+        if(input == null || input == ""){
+            return 0;
+        }
+        var chararray = input.toLowerCase().toCharArray();
+        Arrays.sort(chararray);
+        var k =0;
+        for(int i=0; i < chararray.length; i++){
+            if(chararray[i] == 'b' | chararray[i] =='a'){
+                k++;
+            }
+            if(chararray[i] > 'b'){
+                break;
+            }
+        }
+        if(chararray.length == 0){
+            return 0;
+        }
+        return k*100/chararray.length;
     }
 
     /**
