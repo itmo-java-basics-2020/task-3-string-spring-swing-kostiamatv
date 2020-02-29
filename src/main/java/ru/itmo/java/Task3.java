@@ -73,11 +73,11 @@ public class Task3 {
      * Напишите функцию, которая определяет, является ли входная строка палиндромом
      */
     boolean isPalindrome(String input) {
-        if (input == "") {
-            return true;
-        }
         if (input == null) {
             return false;
+        }
+        if (input.equals("")) {
+            return true;
         }
         for (int i = 0; i <= input.length() / 2; i++) {
             if (input.charAt(i) != input.charAt(input.length() - i - 1)) {
@@ -92,10 +92,10 @@ public class Task3 {
      * где группы одинаковых символов заменены на один символ и кол-во этих символов идущих подряд в строке
      */
     String getEncodedString(String input) {
-        if (input == null || input == "") {
+        if (input == null || input.equals("")) {
             return "";
         }
-        var result = "" + input.charAt(0);
+        StringBuilder result = new StringBuilder("" + input.charAt(0));
         var cur_num = 1;
         var cur_char = input.charAt(0);
         var i = 1;
@@ -103,15 +103,15 @@ public class Task3 {
             if (cur_char == input.charAt(i)) {
                 cur_num++;
             } else {
-                result += Integer.toString(cur_num);
+                result.append(cur_num);
                 cur_char = input.charAt(i);
-                result += cur_char;
+                result.append(cur_char);
                 cur_num = 1;
             }
             i++;
         }
-        result += Integer.toString(cur_num);
-        return result;
+        result.append(cur_num);
+        return result.toString();
     }
 
     /**
@@ -122,7 +122,7 @@ public class Task3 {
      * isPermutation("abc", "Abc") == false;
      */
     boolean isPermutation(String one, String two) {
-        if (one == null || two == null || one == "" || two == "") {
+        if (one == null || two == null || one.equals("") || two.equals("")) {
             return false;
         }
         var chars1 = one.toCharArray();
@@ -138,7 +138,7 @@ public class Task3 {
      * Строкой является последовательность символов длинной N, где N > 0
      */
     boolean isUniqueString(String s) {
-        if (s == null || s == "") {
+        if (s == null || s.equals("")) {
             return false;
         }
         var array = s.toCharArray();
@@ -186,11 +186,11 @@ public class Task3 {
         if (separator == null) {
             separator = ' ';
         }
-        var result = inputStrings[0];
+        StringBuilder result = new StringBuilder(inputStrings[0]);
         for (int i = 1; i < inputStrings.length; i++) {
-            result += separator + inputStrings[i];
+            result.append(separator).append(inputStrings[i]);
         }
-        return result;
+        return result.toString();
     }
 
     /**
@@ -201,11 +201,11 @@ public class Task3 {
             return 0;
         }
         var num = 0;
-        for (int i = 0; i < inputStrings.length; i++) {
-            if (prefix.length() <= inputStrings[i].length()) {
+        for (String inputString : inputStrings) {
+            if (prefix.length() <= inputString.length()) {
                 num++;
                 for (int j = 0; j < prefix.length(); j++) {
-                    if (prefix.charAt(j) != inputStrings[i].charAt(j)) {
+                    if (prefix.charAt(j) != inputString.charAt(j)) {
                         num--;
                         break;
                     }
